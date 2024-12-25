@@ -1,64 +1,79 @@
 # AnomalieDetection
 
+---
+
 ## Description
 
-**AnomalieDetection** est un projet innovant qui combine des technologies de Machine Learning et des visualisations interactives pour détecter des anomalies géospatiales, principalement des crimes. Ce projet offre deux solutions principales :
+**AnomalieDetection** est une plateforme complète et innovante dédiée à la détection d'anomalies géospatiales, notamment des crimes, en utilisant des algorithmes avancés de Machine Learning. Ce projet combine plusieurs technologies pour offrir des solutions robustes et intuitives à deux niveaux :
 
-1. **CrimeDetectionModel-web** : Une application web basée sur React permettant d'analyser et de visualiser les données d'anomalies.
-2. **AnomalieDetection-mobile** : Une application mobile Flutter pour une détection en temps réel.
+1. **CrimeDetectionModel-web** : Une application web conçue avec React pour analyser et visualiser les anomalies détectées.
+2. **AnomalieDetection-mobile** : Une application mobile Flutter permettant une détection en temps réel sur smartphone.
+
+L'objectif principal de ce projet est de fournir un outil performant et accessible pour comprendre, visualiser et prédire les anomalies dans un contexte géographique précis.
 
 ---
 
 ## Fonctionnalités principales
 
-### 1. Visualisation interactive
-Une carte interactive affiche les anomalies détectées avec des marqueurs et des filtres permettant de trier les données par type ou date.
+### 1. **Carte interactive pour la visualisation des crimes**
+L'application web intègre une carte interactive qui affiche les anomalies détectées sous forme de marqueurs. Les utilisateurs peuvent :
+- Filtrer les données par type de crime (par exemple, "Vol", "Assaut").
+- Filtrer par date pour visualiser les incidents récents ou historiques.
+- Cliquer sur un marqueur pour obtenir des détails supplémentaires sur l'anomalie.
 
+**Exemple :**
 ![Carte interactive](screenshots/crimeFiltersOverview.png)
 
 ---
 
-### 2. Analyse régionale
-Les crimes sont regroupés par zones géographiques pour offrir une vue claire des types de crimes les plus fréquents.
+### 2. **Analyse des crimes par région**
+Les anomalies sont regroupées par zones géographiques afin d'identifier les tendances et les types de crimes les plus fréquents dans chaque région. Ce module est essentiel pour les décideurs et les forces de l'ordre.
 
+**Exemple d'analyse régionale :**
 ![Analyse régionale](screenshots/AreasWithMostCrimes.png)
 
 ---
 
-### 3. Statistiques détaillées
-Des graphiques interactifs fournissent des informations complètes sur :
-- La répartition des types de crimes.
-- Les caractéristiques des victimes (âge, sexe).
-- Les armes utilisées.
+### 3. **Statistiques détaillées**
+Une analyse statistique approfondie est proposée pour explorer des données clés :
+- Répartition des crimes par catégories (par exemple, crimes violents, crimes contre les biens).
+- Analyse des caractéristiques des victimes : âge, sexe, etc.
+- Statistiques sur les types d'armes les plus utilisés dans les crimes.
 
+**Exemple d'analyse statistique :**
 ![Statistiques des crimes](screenshots/CrimeDistribution.png)
 
 ---
 
-### 4. Prédiction avec itinéraire
-L'application fournit des prédictions en temps réel pour des itinéraires spécifiques, en indiquant le type de crime probable et sa probabilité.
+### 4. **Prédiction basée sur les itinéraires**
+L'application propose un module permettant d'obtenir des prédictions spécifiques pour un itinéraire donné. En saisissant un point de départ et une destination, les utilisateurs peuvent :
+- Recevoir des informations sur les types de crimes potentiels sur le trajet.
+- Visualiser la probabilité associée à chaque prédiction.
 
+**Exemple d'une prédiction pour un itinéraire :**
 ![Prédiction avec itinéraire](screenshots/crimePredictionWithItinerary.png)
 
 ---
 
-### 5. Prédictions via API
-Grâce à une API Flask, les utilisateurs peuvent soumettre des requêtes pour obtenir des prédictions sur des coordonnées GPS spécifiques.
+### 5. **Prédictions via API Flask**
+L'API Flask intégrée permet d'envoyer des requêtes en temps réel pour obtenir des prédictions sur des coordonnées GPS spécifiques. Les réponses incluent :
+- Le type de crime attendu.
+- La probabilité associée à la prédiction.
 
-**Exemple d'une requête POST via Postman :**
+**Exemple de requête POST via Postman :**
 ![Requête POST](screenshots/postReq.png)
 
 ---
 
 ## Structure du projet
 
-### 1. CrimeDetectionModel-web
-- **backend/** : API Flask pour gérer les prédictions et données.
-- **frontDetection/** : Interface utilisateur développée en React.
-- **notebooks/** : Scripts Jupyter Notebook pour l'analyse des données et l'entraînement des modèles.
-- **screenshots/** : Captures d'écran illustrant les fonctionnalités principales.
+### CrimeDetectionModel-web
+- **backend/** : Contient le code Python pour l'API Flask, utilisée pour traiter les prédictions et les données.
+- **frontDetection/** : Application React pour la visualisation des anomalies.
+- **notebooks/** : Jupyter Notebooks pour l'analyse des données et l'entraînement des modèles de Machine Learning.
+- **screenshots/** : Dossier contenant les captures d'écran utilisées dans ce document.
 
-### 2. AnomalieDetection-mobile
+### AnomalieDetection-mobile
 - **flutter_anomalie_detection/** : Code source de l'application mobile Flutter.
 
 ---
@@ -66,13 +81,17 @@ Grâce à une API Flask, les utilisateurs peuvent soumettre des requêtes pour o
 ## Installation
 
 ### Prérequis
-- **Python 3.7+** : Pour exécuter le backend Flask et les notebooks.
-- **Node.js** et **npm** : Pour le frontend React.
-- **Flutter** : Pour l'application mobile.
+Avant d'installer le projet, assurez-vous que votre environnement est correctement configuré avec les outils suivants :
+- **Python 3.7+** pour exécuter le backend et les notebooks Jupyter.
+- **Node.js et npm** pour le frontend React.
+- **Flutter** pour l'application mobile.
+
+---
 
 ### Étapes d'installation
 
-#### Pour CrimeDetectionModel-web
+#### Installation de CrimeDetectionModel-web
+
 1. Clonez le dépôt :
     ```bash
     git clone https://github.com/votre-utilisateur/CrimeDetectionModel-web.git
@@ -80,36 +99,51 @@ Grâce à une API Flask, les utilisateurs peuvent soumettre des requêtes pour o
     ```
 
 2. Configurez le backend Flask :
-    ```bash
-    cd backend
-    pip install -r requirements.txt
-    python app.py
-    ```
+    - Installez les dépendances Python :
+      ```bash
+      cd backend
+      pip install -r requirements.txt
+      ```
+    - Lancez le serveur Flask :
+      ```bash
+      python app.py
+      ```
 
 3. Configurez le frontend React :
-    ```bash
-    cd frontDetection
-    npm install
-    npm start
-    ```
+    - Installez les dépendances Node.js :
+      ```bash
+      cd frontDetection
+      npm install
+      ```
+    - Lancez l'application React :
+      ```bash
+      npm start
+      ```
 
-4. Lancez les notebooks Jupyter (optionnel) :
+4. Lancez les notebooks Jupyter (optionnel) pour explorer ou entraîner les modèles :
     ```bash
     cd notebooks
     pip install -r requirements.txt
     jupyter notebook
     ```
 
-#### Pour AnomalieDetection-mobile
+---
+
+#### Installation de AnomalieDetection-mobile
+
 1. Clonez le dépôt :
     ```bash
     git clone https://github.com/votre-utilisateur/AnomalieDetection-mobile.git
     cd flutter_anomalie_detection
     ```
 
-2. Installez les dépendances et lancez l'application :
+2. Installez les dépendances Flutter :
     ```bash
     flutter pub get
+    ```
+
+3. Lancez l'application mobile Flutter sur un émulateur ou un appareil connecté :
+    ```bash
     flutter run
     ```
 
@@ -117,10 +151,17 @@ Grâce à une API Flask, les utilisateurs peuvent soumettre des requêtes pour o
 
 ## Remerciements
 
-Merci à tous les contributeurs et à la communauté open-source pour leurs outils précieux, tels que Python, React, Flutter, Flask, et Jupyter.
+Nous souhaitons exprimer notre gratitude envers :
+- Les communautés open-source derrière **React**, **Flutter**, **Flask**, et **Jupyter**, pour leurs outils incroyablement utiles.
+- Les contributeurs du projet pour leurs efforts constants et leur collaboration.
 
 ---
 
 ## Licence
 
-Ce projet est sous licence MIT. Consultez le fichier `LICENSE` pour plus d'informations.
+Ce projet est distribué sous licence MIT. Veuillez consulter le fichier `LICENSE` pour plus de détails.
+
+---
+
+### Contact
+Pour toute question ou suggestion, veuillez nous contacter à l'adresse suivante : **detectionanomaly11@gmail.com**.
